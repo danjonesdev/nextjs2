@@ -63,7 +63,8 @@ const graphQuery = `
 
 export default class extends React.Component {
 
-  static async getInitialProps({ req }) {
+  static async getInitialProps({ req, query }) {
+    console.log('query', query);
     try {
       const posts = await Client(req).query(Prismic.Predicates.at('document.type', 'blog_post'), { pageSize: 50 });
       return { posts }

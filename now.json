@@ -5,7 +5,7 @@
         { "src": "next.config.js", "use": "@now/next" }
     ],
     "routes": [
-        {"src": "/blog", "dest": "/bloghome"},
+        {"src": "/category", "dest": "/category?uid=$id"},
         {"src": "^/blog/(?<id>[^/]*)", "dest": "/blogpost?uid=$id"}
     ]
 }
