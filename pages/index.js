@@ -5,6 +5,7 @@ import { RichText } from 'prismic-reactjs'
 import { TextBlock } from '../components/slices'
 import Layout from './layout'
 
+
 const graphQuery = `
 {
   homepage {

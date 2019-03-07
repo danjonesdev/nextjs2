@@ -1,54 +1,100 @@
 import React from 'react'
 import { Link } from '../routes'
+
 import NotFound from './notfound'
+import { Client, Prismic, linkResolver } from '../components/prismic'
+import { RichText } from 'prismic-reactjs'
+import { TextBlock } from '../components/slices'
 import Layout from './layout'
+
+const graphQuery = `
+{
+  homepage {
+    ...homepageFields
+    body {
+      ... on text_block {
+        non-repeat {
+          ...non-repeatFields
+        }
+        repeat {
+          ...repeatFields
+        }
+      }
+      ... on separator {
+        non-repeat {
+          ...non-repeatFields
+        }
+        repeat {
+          ...repeatFields
+        }
+      }
+      ... on cta_banner {
+        non-repeat {
+          ...non-repeatFields
+        }
+        repeat {
+          ...repeatFields
+        }
+      }
+      ... on big_bullet_item {
+        non-repeat {
+          ...non-repeatFields
+        }
+        repeat {
+          ...repeatFields
+        }
+      }
+      ... on featured_items {
+        non-repeat {
+          ...non-repeatFields
+        }
+        repeat {
+          link_to_product {
+            product_image
+            product_name
+            sub_title
+          }
+        }
+      }
+    }
+  }
+}
+`
 
 export default class extends React.Component {
 
-  static async getInitialProps({ req, query }) {
+  static async getInitialProps({ req }) {
     try {
-      return true
+      const posts = await Client(req).query(Prismic.Predicates.at('document.type', 'blog_post'), { pageSize: 50 });
+      return { posts }
     } catch(error) {
       return { error: true }
     }
   }
 
-  // renderPosts() {
-  //   return this.props.posts.map((document, index) =>
-  //     <div key={index} className="blog-home-post-wrapper">
-  //       <article>
-  //         <img className="blog-home-post-image" src={document.data.image.url} alt={document.data.image.alt} />
-  //         <p className="blog-home-post-title">
-  //           {RichText.asText(document.data.title)}
-  //         </p>
-  //         <p className="blog-home-post-excerpt">
-  //           {RichText.asText(document.data.rich_content).substring(0, 158)} …
-  //         </p>
-  //         <div className="blog-home-post-button-wrapper">
-  //           <Link to="blog/blog-post-1">
-  //             <a className="a-button">blog/blog-post-1</a>
-  //           </Link>
-  //         </div>
-  //       </article>
-  //     </div>
-  //   )
-  // }
+  renderPosts() {
+    return this.props.posts.results.map((post, index) => {
+      console.log(linkResolver(post));
+      const res = (() => {
+        return (
+         <article key={index} className="homepage-slice-wrapper">
+          <p>{post.data.title}</p>
+          <Link to={linkResolver(post)}>
+            <a className="a-button">Read post</a>
+          </Link>
+         </article>
+       )
+      })()
+      return res
+    })
+  }
 
   renderBody() {
     return (
-      <Layout title="{this.props.bloghome.data.meta_title}" description="{this.props.bloghome.data.meta_description}" layout={this.props.layout}>
-        <div className="l-wrapper">
-          <hr className="separator-hr" />
+      <Layout title="{this.props.home.data.meta_title}" description="{this.props.home.data.meta_description}" layout={this.props.layout}>
+        <div>
+          {this.renderPosts()}
         </div>
-
-        <section className="blog-home-section">
-          <div className="blog-home-posts-wrapper">
-            posts
-            <Link to="blog/blog-post-1">
-                        <a className="a-button">blog/blog-post-1</a>
-                      </Link>
-          </div>
-        </section>
       </Layout>
     )
   }

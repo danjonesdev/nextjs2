@@ -12,7 +12,6 @@ export default class extends App {
     }
 
     const layout = await Client(req).getSingle('layout')
-    console.log('layour', layout);
     return {pageProps, layout}
   }
 
