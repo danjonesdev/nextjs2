@@ -24,7 +24,7 @@ export default class extends React.Component {
   renderHead() {
     return (
       <Head className="{this.props.className}">
-        <title>{this.props.title || 'Not Found'} - {config.meta.name}</title>
+        <title>{this.props.title || 'Not Found'} - {this.props.layout.data.site_name}</title>
         <meta name="description" content={this.props.description || config.meta.description} />
         <meta charSet="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -39,15 +39,17 @@ export default class extends React.Component {
     )
   }
   render() {
+    console.log('layout', this.props);
     return (
       <React.Fragment>
         {this.renderHead()}
         <div className={`header${this.state.menuOpen ? ' header--is-nav-opened' : ''}`} id="header">
           <div className="header-inner">
-            <Link to="/blog">
-              <a className="header-name">{"this.props.layout.data.site_name"}</a>
+            <Link to="/">
+              <a className="header-name">{this.props.layout.data.site_name}</a>
             </Link>
             <nav className="header-nav">
+              {this.props.layout.data.site_description}
             </nav>
             <div className="header-burger" id="header-burger" onClick={this.handleMenuOpen}>
               <img className="header-burger-img header-burger-img--closed" src="/static/images/burger-closed.svg" alt="Mobile menu toggle - closed state" />

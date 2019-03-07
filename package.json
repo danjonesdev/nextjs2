@@ -21,6 +21,8 @@
     "next-routes": "^1.4.2",
     "next-server": "^7.0.2-canary.42",
     "node-sass": "^4.11.0",
+    "prismic-javascript": "^2.0.1",
+    "prismic-reactjs": "^0.3.2",
     "react": "^16.6.3",
     "react-dom": "^16.6.3"
   }

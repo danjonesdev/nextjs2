@@ -1,5 +1,6 @@
 import App, {Container} from 'next/app'
 import React from 'react'
+import { Client } from '../components/prismic'
 import "../assets/stylesheets/main.scss"
 
 export default class extends App {
@@ -10,15 +11,17 @@ export default class extends App {
       pageProps = await Component.getInitialProps(ctx)
     }
 
-    return {pageProps}
+    const layout = await Client(req).getSingle('layout')
+    console.log('layour', layout);
+    return {pageProps, layout}
   }
 
   render () {
-    const {Component, pageProps} = this.props
+    const {Component, pageProps, layout} = this.props
     return (
       <Container>
 
-        <Component {...Object.assign(pageProps)} />
+        <Component {...Object.assign(pageProps, {layout})} />
       </Container>
     )
   }
