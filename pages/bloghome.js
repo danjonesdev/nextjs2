@@ -36,7 +36,7 @@ export default class extends React.Component {
 
   renderBody() {
     return (
-      <Layout title="{this.props.bloghome.data.meta_title}" description="{this.props.bloghome.data.meta_description}" layout="{this.props.layout}">
+      <Layout title="{this.props.bloghome.data.meta_title}" description="{this.props.bloghome.data.meta_description}" layout={this.props.layout}>
         <div className="l-wrapper">
           <hr className="separator-hr" />
         </div>
@@ -54,7 +54,7 @@ export default class extends React.Component {
   }
 
   render() {
-    if(this.props.error) return <NotFound />
+    if(this.props.error) return <Layout layout={this.props.layout}><NotFound /></Layout>
     else return this.renderBody()
   }
 }

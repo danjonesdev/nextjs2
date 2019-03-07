@@ -2,7 +2,7 @@ import React from 'react'
 import NotFound from './notfound'
 import { Client, linkResolver } from '../components/prismic'
 import { RichText } from 'prismic-reactjs'
-import { CTABanner, FeaturedItems, NumerotedItems, Separator, TextBlock } from '../components/slices'
+import { TextBlock } from '../components/slices'
 import Layout from './layout'
 
 const graphQuery = `
