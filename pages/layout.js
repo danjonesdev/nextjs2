@@ -48,6 +48,9 @@ export default class extends React.Component {
               <a className="header-name">{this.props.layout.data.site_name}</a>
             </Link>
             <nav className="header-nav">
+              <Link to="/category/recycling">
+                <a className="a-button">Recycling</a>
+              </Link>
               {this.props.layout.data.site_description}
             </nav>
             <div className="header-burger" id="header-burger" onClick={this.handleMenuOpen}>

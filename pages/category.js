@@ -64,9 +64,11 @@ const graphQuery = `
 export default class extends React.Component {
 
   static async getInitialProps({ req, query }) {
-    console.log('query', query);
+    console.log('query', query.uid);
     try {
-      const posts = await Client(req).query(Prismic.Predicates.at('document.type', 'blog_post'), { pageSize: 50 });
+      const posts = await Client(req).query(
+        Prismic.Predicates.at('document.type', 'blog_post')
+      , { pageSize: 50 });
       return { posts }
     } catch(error) {
       return { error: true }
@@ -91,6 +93,7 @@ export default class extends React.Component {
   }
 
   renderBody() {
+    console.log(this.props);
     return (
       <Layout title="{this.props.home.data.meta_title}" description="{this.props.home.data.meta_description}" layout={this.props.layout}>
         <div>

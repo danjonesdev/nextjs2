@@ -1,32 +1,35 @@
-import React from "react";
-import axios from "axios";
-import NotFound from "./notfound";
-import Layout from "./layout";
-
-import sanityHandle from "../actions/sanityHandle";
+import React from 'react'
+import NotFound from './notfound'
+import { Client, linkResolver } from '../components/prismic'
+import { RichText } from 'prismic-reactjs'
+import { TextBlock } from '../components/slices'
+import Layout from './layout'
 
 export default class extends React.Component {
-  static async getInitialProps() {
-    return sanityHandle("https://jsonplaceholder.typicode.com/posts");
+
+  static async getInitialProps({ req, query }) {
+    try {
+      const post = await Client(req).getByUID('blog_post', query.uid)
+      return { post }
+    } catch(error) {
+      return { error: true }
+    }
+  }
+
+  renderBody() {
+    console.log('blog_post', );
+    return (
+      <Layout title={this.props.post.data.title} description={this.props.post.data.description} layout={this.props.layout}>
+        <div>
+          <h1>{this.props.post.data.title}</h1>
+          <p>{this.props.post.data.description}</p>
+        </div>
+      </Layout>
+    )
   }
 
   render() {
-    const { error, isLoaded, items } = this.props;
-
-    if (error) {
-      return <div>Error: {error}</div>;
-    } else if (!isLoaded) {
-      return <div>Loading</div>;
-    } else {
-      return (
-        <ul>
-          {items.map(item => (
-            <li key={item.title}>
-              {item.title} {item.title}
-            </li>
-          ))}
-        </ul>
-      );
-    }
+    if(this.props.error) return <Layout layout={this.props.layout}><NotFound /></Layout>
+    else return this.renderBody()
   }
 }

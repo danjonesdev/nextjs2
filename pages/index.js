@@ -5,61 +5,6 @@ import { RichText } from 'prismic-reactjs'
 import { TextBlock } from '../components/slices'
 import Layout from './layout'
 
-
-const graphQuery = `
-{
-  homepage {
-    ...homepageFields
-    body {
-      ... on text_block {
-        non-repeat {
-          ...non-repeatFields
-        }
-        repeat {
-          ...repeatFields
-        }
-      }
-      ... on separator {
-        non-repeat {
-          ...non-repeatFields
-        }
-        repeat {
-          ...repeatFields
-        }
-      }
-      ... on cta_banner {
-        non-repeat {
-          ...non-repeatFields
-        }
-        repeat {
-          ...repeatFields
-        }
-      }
-      ... on big_bullet_item {
-        non-repeat {
-          ...non-repeatFields
-        }
-        repeat {
-          ...repeatFields
-        }
-      }
-      ... on featured_items {
-        non-repeat {
-          ...non-repeatFields
-        }
-        repeat {
-          link_to_product {
-            product_image
-            product_name
-            sub_title
-          }
-        }
-      }
-    }
-  }
-}
-`
-
 export default class extends React.Component {
 
   static async getInitialProps({ req }) {
@@ -92,7 +37,7 @@ export default class extends React.Component {
   renderBody() {
     console.log('homepage', this.props);
     return (
-      <Layout title="{this.props.home.data.meta_title}" description="{this.props.home.data.meta_description}" layout={this.props.layout}>
+      <Layout title="Home" description={this.props.layout.data.site_description} layout={this.props.layout}>
         hello
 
         <div>
