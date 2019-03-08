@@ -1,3 +1,18 @@
+.container,
+.container-large {
+  max-width: 1500px;
+}
+
+.container-medium {
+  max-width: 1200px;
+}
+
+.container-small {
+  max-width: 750px;
+}
+
+
+
 .flex {
   display: flex;
 }

@@ -1,4 +1,7 @@
-.header {}
+.header {
+  @extend .bb;
+  @extend .bc-black;
+}
 
 .logo {
   @extend .link;

@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "../routes";
-
 import NotFound from "./notfound";
 import { Client, Prismic, linkResolver } from "../components/prismic";
 import { RichText } from "prismic-reactjs";
@@ -10,19 +9,27 @@ import Layout from "./layout";
 export default class extends React.Component {
   static async getInitialProps({ req, query }) {
     try {
+      const category = await Client(req).query(
+        [
+          Prismic.Predicates.at("document.type", "category"),
+          Prismic.Predicates.at("my.category.uid", query.uid)
+        ],
+        { pageSize: 1 }
+      );
+
       const posts = await Client(req).query(
         Prismic.Predicates.at("document.type", "blog_post"),
-        { pageSize: 50 }
+        { pageSize: 30 }
       );
-      return { posts };
+
+      return { category: category.results[0], posts: posts.results };
     } catch (error) {
       return { error: true };
     }
   }
 
   renderPosts() {
-    return this.props.posts.results.map((post, index) => {
-      console.log(post);
+    return this.props.posts.map((post, index) => {
       const res = (() => {
         return (
           <article key={index} className="col-8">
@@ -46,16 +53,16 @@ export default class extends React.Component {
   }
 
   renderBody() {
+    const { category } = this.props;
+
     return (
       <Layout
-        title="{this.props.home.data.meta_title}"
-        description="{this.props.home.data.meta_description}"
+        title={category.data.title}
+        description={category.data.description}
         layout={this.props.layout}
         mainClass="container  mla  mra"
       >
-        <div className="flex  flex-wrap">
-          {this.renderPosts()}
-        </div>
+        <div className="flex  flex-wrap">{this.renderPosts()}</div>
       </Layout>
     );
   }

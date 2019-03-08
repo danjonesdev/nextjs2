@@ -20,6 +20,16 @@ export default class extends React.Component {
   // }
 
   render() {
+    const navLinks = [
+      {
+        text: "Home",
+        to: "/"
+      },
+      {
+        text: "Recycling",
+        to: "/category/recycling"
+      }
+    ];
     return (
       <header className="header  flex">
         <div className="logo">
@@ -34,11 +44,13 @@ export default class extends React.Component {
 
         <nav className="nav  flex">
           <ul class="nav__list">
-            <li class="nav__item">
-              <Link to="/category">
-                Category
-              </Link>
-            </li>
+            {navLinks.map((link, i) => {
+              return (
+                <li class="nav__item">
+                  <Link to={link.to}>{link.text}</Link>
+                </li>
+              );
+            })}
           </ul>
         </nav>
       </header>

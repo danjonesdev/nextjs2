@@ -16,17 +16,23 @@ export default class extends React.Component {
   }
 
   renderBody() {
+    const { post } = this.props;
+
     return (
       <Layout
-        title={this.props.post.data.title}
-        description={this.props.post.data.description}
+        title={post.data.title}
+        description={post.data.description}
         layout={this.props.layout}
-        mainClass="container  mla  mra"
+        mainClass="container-small  mla  mra"
       >
-        <div>
-          <h1>{this.props.post.data.title}</h1>
-          <p>{this.props.post.data.description}</p>
-        </div>
+        <article className="article">
+          <h1 className="article__title">{post.data.title}</h1>
+          <p className="article__description">{post.data.description}</p>
+
+          <section className="article__rich-text">
+            {RichText.render(post.data.article, linkResolver)}
+          </section>
+        </article>
       </Layout>
     );
   }
