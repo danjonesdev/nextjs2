@@ -1,7 +1,25 @@
-.header {
+.header {}
 
+.logo {
+  @extend .link;
+  @extend .cp;
+  @extend .mh3;
 }
 
-.nav {
-  
+.nav {}
+
+.nav__list {
+  @extend .ls-none;
+  @extend .flex;
+  @extend .flex-wrap;
+  @extend .w-100;
+  @extend .pv0;
+  @extend .ph4;
+  @extend .ma0;
+}
+
+.nav__item {
+  @extend .pr3;
+  @extend .flex;
+  @extend .align-center;
 }

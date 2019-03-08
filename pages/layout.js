@@ -31,7 +31,7 @@ export default class extends React.Component {
       <React.Fragment>
         {this.renderHead()}
         <HeaderNav {...this.props} />
-        <main>{this.props.children}</main>
+        <main className={this.props.mainClass}>{this.props.children}</main>
         <Footer {...this.props} />
       </React.Fragment>
     );

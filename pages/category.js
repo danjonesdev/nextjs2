@@ -22,14 +22,22 @@ export default class extends React.Component {
 
   renderPosts() {
     return this.props.posts.results.map((post, index) => {
-      console.log(linkResolver(post));
+      console.log(post);
       const res = (() => {
         return (
-          <article key={index} className="homepage-slice-wrapper">
-            <p>{post.data.title}</p>
-            <Link to={linkResolver(post)}>
-              <a className="a-button">Read post</a>
-            </Link>
+          <article key={index} className="col-8">
+            <figure className="mb2  shadow2">
+              <Link to={linkResolver(post)}>
+                <img src={post.data.main_image.url} alt={post.data.title} />
+              </Link>
+            </figure>
+
+            <div className="ph2">
+              <Link to={linkResolver(post)}>
+                <a className="f3  mb2  link">{post.data.title}</a>
+              </Link>
+              <p className="f6  mb2">Read post</p>
+            </div>
           </article>
         );
       })();
@@ -43,8 +51,11 @@ export default class extends React.Component {
         title="{this.props.home.data.meta_title}"
         description="{this.props.home.data.meta_description}"
         layout={this.props.layout}
+        mainClass="container  mla  mra"
       >
-        <div>{this.renderPosts()}</div>
+        <div className="flex  flex-wrap">
+          {this.renderPosts()}
+        </div>
       </Layout>
     );
   }
@@ -52,7 +63,7 @@ export default class extends React.Component {
   render() {
     if (this.props.error)
       return (
-        <Layout layout={this.props.layout}>
+        <Layout layout={this.props.layout} mainClass="container  mla  mra">
           <NotFound />
         </Layout>
       );

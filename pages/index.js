@@ -41,6 +41,7 @@ export default class extends React.Component {
         title="Home"
         description={this.props.layout.data.site_description}
         layout={this.props.layout}
+        mainClass="container  mla  mra"
       >
         hello
       </Layout>
@@ -50,7 +51,7 @@ export default class extends React.Component {
   render() {
     if (this.props.error)
       return (
-        <Layout layout={this.props.layout}>
+        <Layout layout={this.props.layout} mainClass="container  mla  mra">
           <NotFound />
         </Layout>
       );
