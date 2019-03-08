@@ -22,6 +22,8 @@ export default class extends React.Component {
         { pageSize: 30 }
       );
 
+      // Prismic.Predicates.at("my.blog_post.category_link", query.uid)
+
       return { category: category.results[0], posts: posts.results };
     } catch (error) {
       return { error: true };

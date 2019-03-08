@@ -43,7 +43,13 @@ export default class extends React.Component {
         layout={this.props.layout}
         mainClass="container  mla  mra"
       >
-        hello
+        <section className="pa5">
+          <img
+            className="mla  mra  w-100  br4  shadow2"
+            src="https://spaceholder.cc/1200x400"
+            alt="space"
+          />
+        </section>
       </Layout>
     );
   }
