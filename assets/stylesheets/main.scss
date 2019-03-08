@@ -1,7 +1,7 @@
 // Vendor
 @import 'vendor/normalize';
 // @import 'vendor/flickity';
-@import 'vendor/prism';
+// @import 'vendor/prism';
 
 // Variables
 @import 'vars/index';
@@ -62,6 +62,5 @@
 @import 'elements/button';
 
 // Modules
-// @import 'modules/*';
 @import 'modules/header-nav';
-@import 'modules/modal';
+@import 'modules/footer';
