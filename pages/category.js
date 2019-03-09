@@ -34,18 +34,20 @@ export default class extends React.Component {
     return this.props.posts.map((post, index) => {
       const res = (() => {
         return (
-          <article key={index} className="col-8">
-            <figure className="mb2  shadow2">
-              <Link to={linkResolver(post)}>
-                <img src={post.data.main_image.url} alt={post.data.title} />
-              </Link>
-            </figure>
+          <article key={index} className="col-8  ph3">
+            <div className="card  card--article">
+              <figure className="card__figure  mb3  shadow2">
+                <Link to={linkResolver(post)}>
+                  <img className="card__image" src={post.data.main_image.url} alt={post.data.title} />
+                </Link>
+              </figure>
 
-            <div className="ph2">
-              <Link to={linkResolver(post)}>
-                <a className="f3  mb2  link">{post.data.title}</a>
-              </Link>
-              <p className="f6  mb2">Read post</p>
+              <div className="ph2">
+                <Link to={linkResolver(post)}>
+                  <a className="card__title  f5  mb3  link">{post.data.title}</a>
+                </Link>
+                <p className="card__description  f6  mb3">{post.data.description}</p>
+              </div>
             </div>
           </article>
         );
@@ -62,8 +64,10 @@ export default class extends React.Component {
         title={category.data.title}
         description={category.data.description}
         layout={this.props.layout}
-        mainClass="container  mla  mra"
+        mainClass="container-small  mla  mra  pv5"
       >
+
+        <h1 className="f4  fw6  mb4">category.data.title</h1>
         <div className="flex  flex-wrap">{this.renderPosts()}</div>
       </Layout>
     );

@@ -6,7 +6,6 @@ let frontClient
 export const Client = (req = null) => {
   if(!req && frontClient) return frontClient //prevent generate new instance for client side since we don't need the refreshed request object.
   else {
-    console.log('else');
     const options = Object.assign({}, req ? {req} : {}, PrismicConfig.accessToken ? {accessToken: PrismicConfig.accessToken} : {})
     return PrismicLib.client(PrismicConfig.apiEndpoint, options)
   }
