@@ -1,0 +1,36 @@
+.card.card--article {
+  .card__figure {
+    @extend .link;
+    @extend .br4;
+  }
+
+  .card__image {
+    @extend .br4;
+    @extend .shadow2;
+  }
+
+  .card__title {
+    $number-of-lines: 2;
+    $line-height: 1.15;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $number-of-lines;
+    line-height: $line-height;
+    max-height: $line-height*$number-of-lines;
+  }
+
+  .card__description {
+    $number-of-lines: 3;
+    $line-height: 1.15;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $number-of-lines;
+    line-height: $line-height;
+    max-height: $line-height*$number-of-lines;
+  }
+}

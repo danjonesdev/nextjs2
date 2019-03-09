@@ -43,11 +43,11 @@ export default class extends React.Component {
         </div>
 
         <nav className="nav  flex">
-          <ul class="nav__list">
+          <ul className="nav__list">
             {navLinks.map((link, i) => {
               return (
-                <li class="nav__item">
-                  <Link to={link.to}>{link.text}</Link>
+                <li className="nav__item">
+                  <Link to={link.to}><a className="link  black">{link.text}</a></Link>
                 </li>
               );
             })}

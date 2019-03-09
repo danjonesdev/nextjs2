@@ -1,7 +1,6 @@
 // initial state
 
 .page-transition-enter {
-  // common
   .transition-elem-common {
     opacity: 0;
     transform: translateX(50px);
@@ -12,12 +11,11 @@
 
 .page-transition-enter-active,
 .page-transition-enter-done {
-  // common
   .transition-elem-common {
     opacity: 1;
     transform: translateX(0);
   }
-  // theme
+
   .card {
     opacity: 0;
     -webkit-animation: fadein 0.3s forwards;
@@ -44,13 +42,12 @@
 // initial leaving state
 
 .page-transition-exit {
-  // common
   .transition-elem-common {
     opacity: 1;
     transform: translateX(0);
     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
   }
-  // theme
+
   .card {
     opacity: 1;
     -webkit-animation: fadeOut 0.3s forwards;
@@ -72,7 +69,6 @@
 // state during leaving
 
 .page-transition-exit-active {
-  // common
   .transition-elem-common {
     opacity: 0;
     transform: translateX(-50px);

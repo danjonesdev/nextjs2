@@ -2,6 +2,16 @@
 
 }
 
+.article__img {
+  height: 250px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @extend .br4;
+  @extend .shadow2;
+}
+
 .article__rich-text {
 
 }

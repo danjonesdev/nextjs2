@@ -41,14 +41,31 @@ export default class extends React.Component {
         title="Home"
         description={this.props.layout.data.site_description}
         layout={this.props.layout}
-        mainClass="container  mla  mra"
+        mainClass="container  mla  mra  pv5"
       >
-        <section className="pa5">
-          <img
-            className="mla  mra  w-100  br4  shadow2"
-            src="https://spaceholder.cc/1200x400"
-            alt="space"
-          />
+      <section className="transition-elem-common">
+        <img
+          className="mla  mra  w-100  br4  shadow2  mb4"
+          src="https://spaceholder.cc/1080x200"
+          alt="space"
+        />
+
+      <h1 className="font--primary  f3  bold  mb3">Welcome to the Zero Grav Boilerplate</h1>
+          <p className="font--secondary  f4  mb3">Features include:</p>
+          <ul className="font--secondary  f5  mb3">
+            <li className="pb2">
+              Next.js SSR configuration.
+            </li>
+            <li className="pb2">
+              Prismic CMS integration with link handlers.
+            </li>
+            <li className="pb2">
+              SASS & PostCSS with Utliity based classes.
+            </li>
+            <li className="pb2">
+              Next page transitions (next-page-transitions).
+            </li>
+          </ul>
         </section>
       </Layout>
     );

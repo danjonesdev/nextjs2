@@ -24,12 +24,12 @@ export default class extends React.Component {
         title={post.data.title}
         description={post.data.description}
         layout={this.props.layout}
-        mainClass="container-small  mla  mra"
+        mainClass="container-small  mla  mra  pv5"
       >
         <article className="article  transition-elem-common">
-          <figure className="article__img  h4" style={ { backgroundImage: `url(${post.data.main_image.url})` } }></figure>
-          <h1 className="article__title">{post.data.title}</h1>
-          <p className="article__description">{post.data.description}</p>
+          <figure className="article__img  mb4" style={ { backgroundImage: `url(${post.data.main_image.url})` } }></figure>
+          <h1 className="article__title  mb3">{post.data.title}</h1>
+          <p className="article__description  mb3">{post.data.description}</p>
 
           <section className="article__rich-text">
             {RichText.render(post.data.article, linkResolver)}

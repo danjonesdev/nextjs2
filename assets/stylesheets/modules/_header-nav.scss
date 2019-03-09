@@ -22,6 +22,8 @@
 }
 
 .nav__item {
+  @extend .f5;
+  @extend .bold;
   @extend .pr3;
   @extend .flex;
   @extend .align-center;
