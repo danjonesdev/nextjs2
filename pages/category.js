@@ -34,8 +34,8 @@ export default class extends React.Component {
     return this.props.posts.map((post, index) => {
       const res = (() => {
         return (
-          <article key={index} className="col-8  ph3">
-            <div className="card  card--article">
+          <article key={index} className="card  card--article  col-8  ph3">
+            <div className="">
               <figure className="card__figure  mb3  shadow2">
                 <Link to={linkResolver(post)}>
                   <img className="card__image" src={post.data.main_image.url} alt={post.data.title} />
