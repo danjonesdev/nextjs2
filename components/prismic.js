@@ -17,7 +17,6 @@ export const linkResolver = doc => {
   if (doc.type  ===  'homepage') return  '/'
 	else if (doc.type  ===  'products') return  '/products'
 	else if (doc.type  ===  'product') return  '/products/'  +  doc.uid
-	else if (doc.type  ===  'blog_home') return  '/blog'
-	else if (doc.type  ===  'blog_post') return  '/blog/'  +  doc.uid
+	else if (doc.type  ===  'article') return  '/article/'  +  doc.uid
 	else return  '/'
 }
