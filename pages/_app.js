@@ -1,5 +1,7 @@
 import App, {Container} from 'next/app'
 import React from 'react'
+import { PageTransition } from 'next-page-transitions'
+
 import { Client } from '../components/prismic'
 import "../assets/stylesheets/main.scss"
 
@@ -19,8 +21,9 @@ export default class extends App {
     const {Component, pageProps, layout} = this.props
     return (
       <Container>
-
-        <Component {...Object.assign(pageProps, {layout})} />
+        <PageTransition timeout={300} classNames="page-transition">
+          <Component {...Object.assign(pageProps, {layout})} />
+        </PageTransition>
       </Container>
     )
   }

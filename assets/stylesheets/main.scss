@@ -66,3 +66,59 @@
 @import 'modules/header-nav';
 @import 'modules/footer';
 @import 'modules/article';
+
+// initial state
+
+.page-transition-enter {
+
+  // common
+  .transition-elem-common {
+    opacity: 0;
+  }
+
+  // theme
+  .card  {
+
+  }
+}
+
+// trigger the enter animation
+.page-transition-enter-active {
+    // common
+  .transition-elem-common  {
+  opacity: 1;
+  transition: opacity 300ms;
+}
+
+// theme
+.card  {
+
+}
+}
+
+// initial leaving state
+.page-transition-exit {
+    // common
+  .transition-elem-common  {
+  opacity: 1;
+}
+
+// theme
+.card  {
+
+}
+}
+
+// trigger leaving animation
+.page-transition-exit-active {
+    // common
+  .transition-elem-common  {
+  opacity: 0;
+  transition: opacity 300ms;
+}
+
+// theme
+.card  {
+
+}
+}
