@@ -1,0 +1,36 @@
+.article {
+
+}
+
+.article__rich-text {
+
+}
+
+.article__rich-text  {
+  p {
+    @extend .mb4;
+  }
+}
+
+.article__rich-text  {
+  img {
+    max-width: 100%;
+    width: 400px;
+
+    @extend .mla;
+    @extend .mra;
+    @extend .shadow2;
+  }
+}
+
+.article__rich-text  {
+  iframe {
+    max-width: 100%;
+    width: 800px;
+
+    @extend .db;
+    @extend .mla;
+    @extend .mra;
+    @extend .shadow2;
+  }
+}
