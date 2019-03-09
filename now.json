@@ -5,7 +5,7 @@
         { "src": "next.config.js", "use": "@now/next" }
     ],
     "routes": [
-        {"src": "/category", "dest": "/category?uid=$id"},
+        {"src": "/category/(?<id>[^/]*)", "dest": "/category?uid=$id"},
         {"src": "^/article/(?<id>[^/]*)", "dest": "/article?uid=$id"}
     ]
 }
