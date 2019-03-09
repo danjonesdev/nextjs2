@@ -1,0 +1,80 @@
+// initial state
+
+.page-transition-enter {
+  // common
+  .transition-elem-common {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+}
+// state during transition
+
+.page-transition-enter-active,
+.page-transition-enter-done {
+  // common
+  .transition-elem-common {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  // theme
+  .card {
+    opacity: 0;
+    -webkit-animation: fadein 0.3s forwards;
+    -moz-animation: fadein 0.3s forwards;
+    -ms-animation: fadein 0.3s forwards;
+    -o-animation: fadein 0.3s forwards;
+    animation: fadein 0.3s forwards;
+  }
+  @for $i from 1 to 10 {
+    .card:nth-of-type(#{$i}) {
+      animation-delay: $i * 0.2s;
+    }
+  }
+  @keyframes fadein {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+}
+// initial leaving state
+
+.page-transition-exit {
+  // common
+  .transition-elem-common {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+  // theme
+  .card {
+    opacity: 1;
+    -webkit-animation: fadeOut 0.3s forwards;
+    -moz-animation: fadeOut 0.3s forwards;
+    -ms-animation: fadeOut 0.3s forwards;
+    -o-animation: fadeOut 0.3s forwards;
+    animation: fadeOut 0.3s forwards;
+  }
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+
+    to {
+      opacity: 0;
+    }
+  }
+}
+// state during leaving
+
+.page-transition-exit-active {
+  // common
+  .transition-elem-common {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+}

@@ -17,6 +17,7 @@ export default class extends React.Component {
 
   renderBody() {
     const { post } = this.props;
+    console.log(post);
 
     return (
       <Layout
@@ -25,7 +26,8 @@ export default class extends React.Component {
         layout={this.props.layout}
         mainClass="container-small  mla  mra"
       >
-        <article className="article">
+        <article className="article  transition-elem-common">
+          <figure className="article__img  h4" style={ { backgroundImage: `url(${post.data.main_image.url})` } }></figure>
           <h1 className="article__title">{post.data.title}</h1>
           <p className="article__description">{post.data.description}</p>
 
