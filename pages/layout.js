@@ -23,6 +23,7 @@ export default class extends React.Component {
         <meta name="theme-color" content={config.meta.theme_colour} />
         <meta name="author" content="Dan" />
         <link href="/_next/static/style.css" rel="stylesheet" />
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.23.0/polyfill.min.js' />
       </Head>
     );
   }
