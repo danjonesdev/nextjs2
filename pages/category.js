@@ -3,7 +3,6 @@ import { Link } from "../routes";
 import NotFound from "./notfound";
 import { Client, Prismic, linkResolver } from "../components/prismic";
 import { RichText } from "prismic-reactjs";
-import { TextBlock } from "../components/slices";
 import Layout from "./layout";
 
 export default class extends React.Component {
