@@ -8,7 +8,7 @@ import Layout from "./layout";
 export default class extends React.Component {
   static async getInitialProps({ req, query }) {
     try {
-      const post = await Client(req).getByUID("blog_post", query.uid);
+      const post = await Client(req).getByUID("article", query.uid);
       return { post };
     } catch (error) {
       return { error: true };

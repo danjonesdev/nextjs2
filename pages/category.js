@@ -18,11 +18,11 @@ export default class extends React.Component {
       );
 
       const posts = await Client(req).query(
-        Prismic.Predicates.at("document.type", "blog_post"),
+        Prismic.Predicates.at("document.type", "article"),
         { pageSize: 30 }
       );
 
-      // Prismic.Predicates.at("my.blog_post.category_link", query.uid)
+      // Prismic.Predicates.at("my.article.category_link", query.uid)
 
       return { category: category.results[0], posts: posts.results };
     } catch (error) {

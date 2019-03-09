@@ -6,6 +6,6 @@
     ],
     "routes": [
         {"src": "/category", "dest": "/category?uid=$id"},
-        {"src": "^/blog/(?<id>[^/]*)", "dest": "/blogpost?uid=$id"}
+        {"src": "^/article/(?<id>[^/]*)", "dest": "/article?uid=$id"}
     ]
 }
