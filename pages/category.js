@@ -63,7 +63,7 @@ export default class extends React.Component {
         mainClass="container-small  mla  mra  pv5"
       >
 
-        <h1 className="f4  bold  mb4  transition-elem-common">category.data.title</h1>
+        <h1 className="f4  bold  mb4  transition-elem-common">{category.data.title}</h1>
         <div className="flex  flex-wrap">{this.renderPosts()}</div>
       </Layout>
     );
