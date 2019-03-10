@@ -1,8 +1,9 @@
-const { PHASE_PRODUCTION_SERVER } = process.env.NODE_ENV === 'development'
-  ? {}
-  : process.env.NOW_REGION === false
-    ? require('next/constants')
-    : require('next-server/constants');
+const { PHASE_PRODUCTION_SERVER } =
+  process.env.NODE_ENV === "development"
+    ? {}
+    : process.env.NOW_REGION === false
+    ? require("next/constants")
+    : require("next-server/constants");
 
 module.exports = (phase, { defaultConfig }) => {
   if (phase === PHASE_PRODUCTION_SERVER) {
@@ -10,10 +11,21 @@ module.exports = (phase, { defaultConfig }) => {
     return {};
   }
 
-  if (phase == 'phase-development-server') {
-    const withSass = require('@zeit/next-sass');
-    const withESLint = require('next-eslint');
+  const withSass = require("@zeit/next-sass");
 
-    return withESLint(withSass());
-  }
+  return withSass({
+    webpack(config, { dev, isServer }) {
+      if (dev) {
+        config.module.rules.push({
+          test: /\.js$/,
+          exclude: /node_modules/,
+          loader: "eslint-loader",
+          options: {
+            // eslint options (if necessary)
+          }
+        });
+      }
+      return config;
+    }
+  });
 };
