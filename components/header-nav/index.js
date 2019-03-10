@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "../../routes";
+import React from 'react';
+import { Link } from '../../routes';
 
 export default class extends React.Component {
   // constructor(props) {
@@ -20,15 +20,17 @@ export default class extends React.Component {
   // }
 
   render() {
+    const { layout } = this.props;
+
     const navLinks = [
       {
-        text: "Home",
-        to: "/"
+        text: 'Home',
+        to: '/',
       },
       {
-        text: "Recycling",
-        to: "/category/recycling"
-      }
+        text: 'Recycling',
+        to: '/category/recycling',
+      },
     ];
     return (
       <header className="header  flex">
@@ -37,20 +39,18 @@ export default class extends React.Component {
             <img
               className="w3"
               src="/static/images/punch.png"
-              alt={this.props.layout.data.site_name}
+              alt={layout.data.site_name}
             />
           </Link>
         </div>
 
         <nav className="nav  flex">
           <ul className="nav__list">
-            {navLinks.map((link, i) => {
-              return (
-                <li className="nav__item">
-                  <Link to={link.to}><a className="link  black">{link.text}</a></Link>
-                </li>
-              );
-            })}
+            {navLinks.map(link => (
+              <li className="nav__item">
+                <Link to={link.to}><a className="link  black">{link.text}</a></Link>
+              </li>
+            ))}
           </ul>
         </nav>
       </header>

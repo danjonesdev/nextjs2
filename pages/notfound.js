@@ -1,7 +1,7 @@
-import React from 'react'
-import { Link } from '../routes'
+import React from 'react';
+import { Link } from '../routes';
 
-export default ({msg = "Page not found"}) =>
+export default ({ msg = 'Page not found' }) => (
   <React.Fragment>
     <div className="l-wrapper">
       <hr className="separator-hr" />
@@ -14,3 +14,4 @@ export default ({msg = "Page not found"}) =>
       </div>
     </div>
   </React.Fragment>
+);

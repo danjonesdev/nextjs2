@@ -1,44 +1,49 @@
-import React from 'react'
-import { Link } from '../routes'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Link } from '../routes';
 
 export default class Error extends React.Component {
   static getInitialProps({ res, err }) {
-    const statusCode = res ? res.statusCode : err ? err.statusCode : null
-    return { statusCode }
+    const statusCode = res ? res.statusCode : err ? err.statusCode : null; // eslint-disable-line
+    return { statusCode };
   }
 
-  render404() {
-    return (
-      <section className="container">
-        <h1>Oh no!</h1>
-        <h3>We can't seem to find the page you're looking for.</h3>
-        <h3><Link route='/'><a>Back to the homepage</a></Link></h3>
-      </section>
-    )
-  }
+  render404 = () => (
+    <section className="container">
+      <h1>Oh no!</h1>
+      <h3>We cant seem to find the page youre looking for.</h3>
+      <h3><Link route="/"><a>Back to the homepage</a></Link></h3>
+    </section>
+  )
 
-  render500() {
-    return (
-      <section className="container">
-        <h1>Oh no!</h1>
-        <h3>Something went wrong. Please contact the support.</h3>
-      </section>
-    )
-  }
+  render500 = () => (
+    <section className="container">
+      <h1>Oh no!</h1>
+      <h3>Something went wrong. Please contact the support.</h3>
+    </section>
+  )
 
   renderDefault() {
+    const { statusCode } = this.props;
+
     return (
       <p>
-        {this.props.statusCode
-          ? `An error ${this.props.statusCode} occurred on server`
+        {statusCode
+          ? `An error ${statusCode} occurred on server`
           : 'An error occurred on client'}
-    </p>
-    )
+      </p>
+    );
   }
 
   render() {
-    if(this.props.statusCode == 404) return this.render404()
-    else if(this.props.statusCode >= 500 && this.props.statusCode <= 599) return render500()
-    else renderDefault()
+    const { statusCode } = this.props;
+
+    if (statusCode === 404) return this.render404();
+    if (statusCode >= 500 && statusCode <= 599) return this.render500();
+    return this.renderDefault();
   }
 }
+
+Error.propTypes = {
+  statusCode: PropTypes.number.isRequired,
+};
