@@ -33,12 +33,12 @@ export default class extends React.Component {
       },
     ];
     return (
-      <header className="header  flex">
+      <header className="header  flex  align-center">
         <div className="logo">
           <Link to="/">
             <img
               className="w3"
-              src="/static/images/punch.png"
+              src="/static/images/logo.png"
               alt={layout.data.site_name}
             />
           </Link>

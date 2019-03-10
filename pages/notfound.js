@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from '../routes';
 
 export default ({ msg = 'Page not found' }) => (
-  <React.Fragment>
+  <>
     <div className="l-wrapper">
       <hr className="separator-hr" />
     </div>
@@ -13,5 +13,5 @@ export default ({ msg = 'Page not found' }) => (
         <Link to="/"><a>Go Back to the homepage</a></Link>
       </div>
     </div>
-  </React.Fragment>
+  </>
 );

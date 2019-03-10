@@ -1,5 +1,7 @@
 .header {
+  height: 80px;
   @extend .bb;
+  @extend .bw1;
   @extend .bc-black;
 }
 
@@ -17,7 +19,7 @@
   @extend .flex-wrap;
   @extend .w-100;
   @extend .pv0;
-  @extend .ph4;
+  @extend .ph3;
   @extend .ma0;
 }
 
