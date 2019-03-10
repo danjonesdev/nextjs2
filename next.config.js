@@ -1,5 +1,18 @@
-const withPlugins = require('next-compose-plugins');
-const withSass = require('@zeit/next-sass');
-const withESLint = require('next-eslint')
+const { PHASE_PRODUCTION_SERVER } =
+  process.env.NODE_ENV === 'development'
+    ? {}
+    : process.env.NOW_REGION === false
+      ? require('next/constants')
+      : require('next-server/constants');
 
-module.exports = withPlugins([withSass, withESLint], {});
+module.exports = (phase, { defaultConfig }) => {
+  if (phase === PHASE_PRODUCTION_SERVER) {
+    // Config used to run in production.
+    return {};
+  }
+
+  const withSass = require('@zeit/next-sass');
+  const withESLint = require('next-eslint')
+
+  return withSass(withESLint());
+};

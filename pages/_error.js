@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Link } from '../routes';
 
 export default class Error extends React.Component {
@@ -43,7 +42,3 @@ export default class Error extends React.Component {
     return this.renderDefault();
   }
 }
-
-Error.propTypes = {
-  statusCode: PropTypes.number.isRequired,
-};
