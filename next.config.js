@@ -12,7 +12,5 @@ module.exports = (phase, { defaultConfig }) => {
   }
 
   const withSass = require('@zeit/next-sass');
-  const withESLint = require('next-eslint')
-
-  return withSass(withESLint());
+  return withSass();
 };
