@@ -6,11 +6,14 @@ const { PHASE_PRODUCTION_SERVER } =
       : require('next-server/constants');
 
 module.exports = (phase, { defaultConfig }) => {
+  console.log(phase);
   if (phase === PHASE_PRODUCTION_SERVER) {
     // Config used to run in production.
     return {};
   }
 
   const withSass = require('@zeit/next-sass');
-  return withSass();
+  const withESLint = require('next-eslint')
+
+  return withESLint(withSass());
 };
