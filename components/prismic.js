@@ -1,6 +1,4 @@
-import PrismicLib, {
-  previewCookie,
-} from 'prismic-javascript';
+import PrismicLib, { previewCookie } from 'prismic-javascript';
 import PrismicConfig from '../prismic-configuration.json';
 
 let frontClient;
@@ -8,11 +6,19 @@ let frontClient;
 export const Client = (req = null) => {
   if (!req && frontClient) return frontClient;
 
-  const options = Object.assign({}, req ? {
-    req,
-  } : {}, PrismicConfig.accessToken ? {
-    accessToken: PrismicConfig.accessToken,
-  } : {});
+  const options = Object.assign(
+    {},
+    req
+      ? {
+        req,
+      }
+      : {},
+    PrismicConfig.accessToken
+      ? {
+        accessToken: PrismicConfig.accessToken,
+      }
+      : {},
+  );
   return PrismicLib.client(PrismicConfig.apiEndpoint, options);
 };
 export const Prismic = PrismicLib;

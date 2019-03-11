@@ -1,17 +1,18 @@
 .container,
 .container-large {
+  @extend .ph4;
   max-width: 1500px;
 }
 
 .container-medium {
+  @extend .ph4;
   max-width: 1200px;
 }
 
 .container-small {
+  @extend .ph4;
   max-width: 750px;
 }
-
-
 
 .flex {
   display: flex;

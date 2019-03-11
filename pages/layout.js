@@ -11,14 +11,8 @@ export default class extends React.Component {
     return (
       <>
         <meta property="og:type" content="article" />
-        <meta
-          property="article:published_time"
-          content={article.first_publication_date || ''}
-        />
-        <meta
-          property="article:modified_time"
-          content={article.first_publication_date}
-        />
+        <meta property="article:published_time" content={article.first_publication_date || ''} />
+        <meta property="article:modified_time" content={article.first_publication_date || ''} />
         <meta property="article:section" content="Article Section" />
         <meta property="article:tag" content="Article Tag" />
       </>
@@ -30,41 +24,44 @@ export default class extends React.Component {
       layout, article, title, description, image,
     } = this.props;
 
-    console.log(layout);
+    const titleVal = title || 'Not Found';
+    const descriptionVal = description || '';
+    const imageVal = image || '/static/images/logo.png';
+    const siteNameVal = layout.data.site_name || '';
+    const twitterVal = layout.data.twitter_handle || '';
 
     return (
       <Head>
         <title>
-          {title || 'Not Found'}
+          {titleVal}
           {' - '}
-          {layout.data.site_name}
+          {siteNameVal}
         </title>
-        <meta name="description" content={description || ''} />
+        <meta name="description" content={descriptionVal} />
 
         {/* Schema.org markup for Google+ */}
-        <meta itemProp="name" content={title || 'Not Found'} />
-        <meta itemProp="description" content={description || ''} />
-        <meta itemProp="image" content={image || '/static/images/logo.png'} />
+        <meta itemProp="name" content={titleVal} />
+        <meta itemProp="description" content={descriptionVal} />
+        <meta itemProp="image" content={imageVal} />
 
         {/* Twitter Card data */}
         <meta name="twitter:card" content="summary_large_image" />
-        {layout.data.twitter_handle ? <meta name="twitter:site" content={layout.data.twitter_handle} /> : ''}
-        <meta name="twitter:title" content={title || 'Not Found'} />
-        <meta name="twitter:description" content={description || ''} />
-        {layout.data.twitter_handle ? <meta name="twitter:creator" content={layout.data.twitter_handle} /> : ''}
-        {/* Twitter summary card with large image must be at least 280x150px */}
-        <meta name="twitter:image:src" content={image || '/static/images/logo.png'} />
+        <meta name="twitter:title" content={titleVal} />
+        <meta name="twitter:description" content={descriptionVal} />
+        <meta name="twitter:image:src" content={imageVal} />
+        {twitterVal ? <meta name="twitter:creator" content={twitterVal} /> : false}
+        {twitterVal ? <meta name="twitter:site" content={twitterVal} /> : false}
 
         {/* Open Graph data */}
-        <meta property="og:title" content={title || 'Not Found'} />
+        <meta property="og:title" content={titleVal} />
 
         <meta property="og:url" content="http://www.example.com/" />
-        <meta property="og:image" content={image || '/static/images/logo.png'} />
-        <meta property="og:description" content={description || ''} />
-        <meta property="og:site_name" content={layout.data.site_name} />
+        <meta property="og:image" content={imageVal} />
+        <meta property="og:description" content={descriptionVal} />
+        <meta property="og:site_name" content={siteNameVal} />
         <meta property="fb:admins" content="Facebook numberic ID" />
 
-        {article ? this.renderArticleMeta() : ''}
+        {article ? this.renderArticleMeta() : false}
 
         {/* Favicon */}
         <link rel="apple-touch-icon" sizes="180x180" href="/static/favicon/apple-touch-icon.png" />

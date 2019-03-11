@@ -26,7 +26,10 @@ export default class extends React.Component {
         mainClass="container-small  mla  mra  pv5"
       >
         <article className="article  transition-elem-common">
-          <figure className="article__img  mb4" style={{ backgroundImage: `url(${article.data.main_image.url})` }} />
+          <figure
+            className="article__img  mb4"
+            style={{ backgroundImage: `url(${article.data.main_image.url})` }}
+          />
           <time className="article__date  db  mb2">{article.first_publication_date}</time>
           <h1 className="article__title  mb3">{article.data.title}</h1>
           <p className="article__description  mb3">{article.data.description}</p>
@@ -40,15 +43,9 @@ export default class extends React.Component {
   }
 
   render() {
-    const { layout, error } = this.props;
+    const { error } = this.props;
 
-    if (error) {
-      return (
-        <Layout layout={layout} mainClass="container  mla  mra">
-          <NotFound />
-        </Layout>
-      );
-    }
+    if (error) return <NotFound />;
     return this.renderBody();
   }
 }

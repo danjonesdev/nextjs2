@@ -11,7 +11,7 @@ export default class extends React.Component {
         title="Home"
         description={layout.data.site_description}
         layout={layout}
-        mainClass="container  mla  mra  pv5"
+        mainClass="container-medium  mla  mra  pv5"
       >
         <section className="transition-elem-common">
           <img
@@ -23,18 +23,10 @@ export default class extends React.Component {
           <h1 className="font--primary  f3  bold  mb3">Welcome to the Zero Grav Boilerplate</h1>
           <p className="font--secondary  f4  mb3">Features include:</p>
           <ul className="font--secondary  f5  mb3">
-            <li className="pb2">
-              Next.js SSR configuration.
-            </li>
-            <li className="pb2">
-              Prismic CMS integration with link handlers.
-            </li>
-            <li className="pb2">
-              SASS & PostCSS with Utliity based classes.
-            </li>
-            <li className="pb2">
-              Next page transitions (next-page-transitions).
-            </li>
+            <li className="pb2">Next.js SSR configuration.</li>
+            <li className="pb2">Prismic CMS integration with link handlers.</li>
+            <li className="pb2">SASS & PostCSS with Utliity based classes.</li>
+            <li className="pb2">Next page transitions (next-page-transitions).</li>
           </ul>
         </section>
       </Layout>
@@ -42,15 +34,9 @@ export default class extends React.Component {
   }
 
   render() {
-    const { error, layout } = this.props;
+    const { error } = this.props;
 
-    if (error) {
-      return (
-        <Layout layout={layout} mainClass="container  mla  mra">
-          <NotFound />
-        </Layout>
-      );
-    }
+    if (error) return <NotFound />;
     return this.renderBody();
   }
 }

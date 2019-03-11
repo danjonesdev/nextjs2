@@ -36,11 +36,7 @@ export default class extends React.Component {
       <header className="header  flex  align-center">
         <div className="logo">
           <Link to="/">
-            <img
-              className="w3"
-              src="/static/images/logo.png"
-              alt={layout.data.site_name}
-            />
+            <img className="w3" src="/static/images/logo.png" alt={layout.data.site_name} />
           </Link>
         </div>
 
@@ -48,7 +44,9 @@ export default class extends React.Component {
           <ul className="nav__list">
             {navLinks.map(link => (
               <li className="nav__item">
-                <Link to={link.to}><a className="link  black">{link.text}</a></Link>
+                <Link to={link.to}>
+                  <a className="link  black">{link.text}</a>
+                </Link>
               </li>
             ))}
           </ul>
