@@ -3,4 +3,9 @@ import { Link as LinkHelper } from 'prismic-reactjs';
 import { linkResolver } from './prismic';
 import { Link } from '../routes';
 
-export default props => <Link to={LinkHelper.url(props.to, linkResolver)}>{props.children}</Link>;
+export default (props) => {
+  const { to, children } = props;
+  return (
+    <Link to={LinkHelper.url(to, linkResolver)}>{children}</Link>
+  );
+};

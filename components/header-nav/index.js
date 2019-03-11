@@ -28,8 +28,8 @@ export default class extends React.Component {
         to: '/',
       },
       {
-        text: 'Recycling',
-        to: '/category/recycling',
+        text: 'Black Holes ',
+        to: '/category/black-holes',
       },
     ];
     return (

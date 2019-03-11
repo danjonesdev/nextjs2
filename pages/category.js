@@ -16,43 +16,45 @@ export default class extends React.Component {
         { pageSize: 1 },
       );
 
-      const posts = await Client(req).query(Prismic.Predicates.at('document.type', 'article'), {
+      const articles = await Client(req).query(Prismic.Predicates.at('document.type', 'article'), {
         pageSize: 30,
       });
 
       // Prismic.Predicates.at("my.article.category_link", query.uid)
 
-      return { category: category.results[0], posts: posts.results };
+      return { category: category.results[0], articles: articles.results };
     } catch (error) {
       return { error: true };
     }
   }
 
-  renderPosts() {
-    const { posts } = this.props;
+  renderarticles() {
+    const { articles } = this.props;
 
-    return posts.map((post) => {
-      const titleVal = post.data.title || '';
-      const descriptionVal = post.data.description || '';
-      const imageVal = (post.data.main_image) ? post.data.main_image.url : '';
-      const placeholderImageVal = (post.data.main_image && post.data.main_image.placeholder)
-        ? post.data.main_image.placeholder.url
+    return articles.map((article) => {
+      const titleVal = article.data.title || '';
+      const descriptionVal = article.data.description || '';
+      const imageVal = (article.data.main_image) ? article.data.main_image.url : '';
+      const placeholderImageVal = (article.data.main_image && article.data.main_image.placeholder)
+        ? article.data.main_image.placeholder.url
         : imageVal;
 
       const res = (() => (
         <article className="card  card--article  col-8  ph3">
           <figure className="card__figure  mb3">
-            <Link to={linkResolver(post)}>
-              <ProgressiveImage src={imageVal} placeholder={placeholderImageVal}>
-                {(src, loading) => (
-                  <img className={`card__image  w-100  ${loading ? 'card__image--loading' : ''}`} src={src} alt={titleVal} />
-                )}
-              </ProgressiveImage>
+            <Link to={linkResolver(article)}>
+              <a>
+                <ProgressiveImage src={imageVal} placeholder={placeholderImageVal}>
+                  {(src, loading) => (
+                    <img className={`card__image  w-100  ${loading ? 'card__image--loading' : ''}`} src={src} alt={titleVal} />
+                  )}
+                </ProgressiveImage>
+              </a>
             </Link>
           </figure>
 
           <div className="ph2  h4">
-            <Link to={linkResolver(post)}>
+            <Link to={linkResolver(article)}>
               <a className="card__title  f5  mb2  black  link">{titleVal}</a>
             </Link>
             <p className="card__description  f6">{descriptionVal}</p>
@@ -74,7 +76,7 @@ export default class extends React.Component {
         mainClass="container-small  mla  mra  pv5"
       >
         <h1 className="f4  bold  mb4  transition-elem-common">{category.data.title}</h1>
-        <div className="flex  flex-wrap">{this.renderPosts()}</div>
+        <div className="flex  flex-wrap">{this.renderarticles()}</div>
       </Layout>
     );
   }

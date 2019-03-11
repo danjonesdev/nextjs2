@@ -26,7 +26,8 @@ export default class extends React.Component {
             <li className="pb2">Next.js SSR configuration.</li>
             <li className="pb2">Prismic CMS integration with link handlers.</li>
             <li className="pb2">SASS & PostCSS with Utliity based classes.</li>
-            <li className="pb2">Next page transitions (next-page-transitions).</li>
+            <li className="pb2">Next page transitions.</li>
+            <li className="pb2">Progressive image loading.</li>
           </ul>
         </section>
       </Layout>

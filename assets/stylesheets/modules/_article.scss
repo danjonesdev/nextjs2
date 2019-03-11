@@ -2,14 +2,27 @@
 
 }
 
-.article__img {
-  height: 250px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+.article__figure {
+  overflow: hidden;
 
+  @extend .w-100;
+  @extend .link;
   @extend .br4;
   @extend .shadow2;
+}
+
+.article__img {
+  height: 250px;
+  object-fit: cover;
+  transition: filter .3s ease-in;
+
+  @extend .w-100;
+  @extend .br4;
+  @extend .shadow2;
+}
+
+.article__img--loading {
+  filter: blur(20px);
 }
 
 .article__rich-text {
