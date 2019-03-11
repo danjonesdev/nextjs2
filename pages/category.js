@@ -1,4 +1,5 @@
 import React from 'react';
+import ProgressiveImage from 'react-progressive-image';
 import { Link } from '../routes';
 import NotFound from './notfound';
 import { Client, Prismic, linkResolver } from '../components/prismic';
@@ -33,13 +34,20 @@ export default class extends React.Component {
     return posts.map((post) => {
       const titleVal = post.data.title || '';
       const descriptionVal = post.data.description || '';
-      const imageVal = post.data.main_image.url || '';
+      const imageVal = (post.data.main_image) ? post.data.main_image.url : '';
+      const placeholderImageVal = (post.data.main_image && post.data.main_image.placeholder)
+        ? post.data.main_image.placeholder.url
+        : imageVal;
 
       const res = (() => (
         <article className="card  card--article  col-8  ph3">
           <figure className="card__figure  mb3">
             <Link to={linkResolver(post)}>
-              <img className="card__image" src={imageVal} alt={titleVal} />
+              <ProgressiveImage src={imageVal} placeholder={placeholderImageVal}>
+                {(src, loading) => (
+                  <img className={`card__image  w-100  ${loading ? 'card__image--loading' : ''}`} src={src} alt={titleVal} />
+                )}
+              </ProgressiveImage>
             </Link>
           </figure>
 

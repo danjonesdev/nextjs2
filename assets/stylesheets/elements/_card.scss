@@ -1,12 +1,21 @@
 .card.card--article {
   .card__figure {
+    overflow: hidden;
+
     @extend .link;
     @extend .br4;
+    @extend .shadow2;
   }
 
   .card__image {
+    transition: filter .3s ease-in;
+
     @extend .br4;
     @extend .shadow2;
+  }
+
+  .card__image--loading {
+    filter: blur(30px);
   }
 
   .card__title {
