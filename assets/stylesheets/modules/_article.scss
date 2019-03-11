@@ -9,6 +9,7 @@
   @extend .link;
   @extend .br4;
   @extend .shadow2;
+  @extend .mb4;
 }
 
 .article__img {
@@ -23,6 +24,19 @@
 
 .article__img--loading {
   filter: blur(20px);
+}
+
+.article__date {
+  @extend .db;
+  @extend .mb2;
+}
+
+.article__title {
+  @extend .mb3;
+}
+
+.article__description {
+  @extend .mb3;
 }
 
 .article__rich-text {

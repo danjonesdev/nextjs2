@@ -24,6 +24,7 @@ export default class extends React.Component {
     const placeholderImageVal = (article.data.main_image && article.data.main_image.placeholder)
       ? article.data.main_image.placeholder.url
       : imageVal;
+    const pubDate = (article.first_publication_date) ? article.first_publication_date : '';
 
     return (
       <Layout
@@ -34,7 +35,7 @@ export default class extends React.Component {
         mainClass="container-small  mla  mra  pv5"
       >
         <article className="article  transition-elem-common">
-          <figure className="article__figure  mb4">
+          <figure className="article__figure">
             <ProgressiveImage src={imageVal} placeholder={placeholderImageVal}>
               {(src, loading) => (
                 <img className={`article__img ${loading ? 'article__img--loading' : ''}`} src={src} alt={titleVal} />
@@ -42,9 +43,9 @@ export default class extends React.Component {
             </ProgressiveImage>
           </figure>
 
-          <time className="article__date  db  mb2">{article.first_publication_date}</time>
-          <h1 className="article__title  mb3">{titleVal}</h1>
-          <p className="article__description  mb3">{descriptionVal}</p>
+          <time className="article__date">{pubDate}</time>
+          <h1 className="article__title">{titleVal}</h1>
+          <p className="article__description">{descriptionVal}</p>
 
           <section className="article__rich-text">
             {RichText.render(article.data.article, linkResolver)}

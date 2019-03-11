@@ -1,5 +1,13 @@
 // initial state
 
+.transition-elem-common {
+  opacity: 0;
+}
+
+.card {
+  opacity: 0;
+}
+
 .page-transition-enter {
   .transition-elem-common {
     opacity: 0;
