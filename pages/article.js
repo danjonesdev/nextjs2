@@ -19,6 +19,7 @@ export default class extends React.Component {
 
     const titleVal = article.data.title || '';
     const descriptionVal = article.data.description || '';
+    const imageVal = (article.data.main_image) ? article.data.main_image.url : '';
 
     return (
       <Layout
@@ -26,6 +27,7 @@ export default class extends React.Component {
         description={descriptionVal}
         layout={layout}
         article={article}
+        image={imageVal}
         mainClass="container-small  mla  mra  pv5"
       >
         <Article article={article} />
