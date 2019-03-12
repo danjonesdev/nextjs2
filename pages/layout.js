@@ -59,7 +59,6 @@ export default class extends React.Component {
         {/* Open Graph data */}
         <meta property="og:title" content={titleVal} />
 
-        <meta property="og:url" content="http://www.example.com/" />
         <meta property="og:image" content={imageVal} />
         <meta property="og:description" content={descriptionVal} />
         <meta property="og:site_name" content={siteNameVal} />
