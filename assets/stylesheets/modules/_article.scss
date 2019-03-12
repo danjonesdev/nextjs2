@@ -1,10 +1,9 @@
 .article {
-
+  @extend .transition-elem-common;
 }
 
 .article__figure {
   overflow: hidden;
-
   @extend .w-100;
   @extend .link;
   @extend .br4;
@@ -15,8 +14,7 @@
 .article__img {
   height: 250px;
   object-fit: cover;
-  transition: filter .3s ease-in;
-
+  transition: filter 0.3s ease-in;
   @extend .w-100;
   @extend .br4;
   @extend .shadow2;
@@ -37,34 +35,31 @@
 
 .article__description {
   @extend .mb3;
+  @extend .f6;
 }
+
+.article__rich-text {}
 
 .article__rich-text {
-
-}
-
-.article__rich-text  {
   p {
     @extend .mb4;
   }
 }
 
-.article__rich-text  {
+.article__rich-text {
   img {
     max-width: 100%;
     width: 400px;
-
     @extend .mla;
     @extend .mra;
     @extend .shadow2;
   }
 }
 
-.article__rich-text  {
+.article__rich-text {
   iframe {
     max-width: 100%;
     width: 800px;
-
     @extend .db;
     @extend .mla;
     @extend .mra;

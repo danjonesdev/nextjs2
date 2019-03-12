@@ -16,8 +16,8 @@ export default class extends React.Component {
         : imageVal;
 
       const res = (() => (
-        <article className="card  card--article  col-6  ph3">
-          <figure className="card__figure  mb3">
+        <article className="card  card--article  card--article--featured">
+          <figure className="card__figure">
             <Link to={linkResolver(article)}>
               <a>
                 <ProgressiveImage src={imageVal} placeholder={placeholderImageVal}>
@@ -29,11 +29,11 @@ export default class extends React.Component {
             </Link>
           </figure>
 
-          <div className="ph2  h4">
+          <div className="card__details">
             <Link to={linkResolver(article)}>
-              <a className="card__title  f5  mb2  black  link">{titleVal}</a>
+              <a className="card__title">{titleVal}</a>
             </Link>
-            <p className="card__description  f6">{descriptionVal}</p>
+            <p className="card__description">{descriptionVal}</p>
           </div>
         </article>
       ))();

@@ -1,15 +1,18 @@
 .card.card--article {
+  @extend .col-6-md;
+  @extend .col-24;
+  @extend .ph3;
+
   .card__figure {
     overflow: hidden;
-
     @extend .link;
     @extend .br4;
     @extend .shadow2;
+    @extend .mb3;
   }
 
   .card__image {
-    transition: filter .3s ease-in;
-
+    transition: filter 0.3s ease-in;
     @extend .br4;
     @extend .shadow2;
   }
@@ -18,10 +21,14 @@
     filter: blur(20px);
   }
 
+  .card__details {
+    @extend .ph2;
+    @extend .h4;
+  }
+
   .card__title {
     $number-of-lines: 2;
     $line-height: 1.15;
-
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -29,6 +36,10 @@
     -webkit-line-clamp: $number-of-lines;
     line-height: $line-height;
     max-height: $line-height*$number-of-lines;
+    @extend .f5;
+    @extend .mb2;
+    @extend .black;
+    @extend .link;
   }
 
   .card__description {
