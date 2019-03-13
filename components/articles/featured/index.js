@@ -38,7 +38,7 @@ export default class extends React.Component {
         </article>
       ))();
 
-      return (titleVal, descriptionVal, imageVal, placeholderImageVal) ? res : false;
+      return (titleVal && descriptionVal && imageVal && placeholderImageVal) ? res : false;
     });
   }
 

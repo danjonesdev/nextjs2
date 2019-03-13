@@ -7,15 +7,15 @@ export default class extends React.Component {
   renderArticle() {
     const { article } = this.props;
 
-    const titleVal = article.data.title || '';
-    const descriptionVal = article.data.description || '';
-    const imageVal = (article.data.main_image) ? article.data.main_image.url : '';
+    const titleVal = article.data.title;
+    const descriptionVal = article.data.description;
+    const imageVal = article.data.main_image.url;
     const placeholderImageVal = (article.data.main_image && article.data.main_image.placeholder)
       ? article.data.main_image.placeholder.url
       : imageVal;
-    const pubDate = (article.first_publication_date) ? article.first_publication_date : '';
+    const pubDate = article.first_publication_date;
 
-    return (
+    const res = (
       <article className="article">
         <figure className="article__figure">
           <ProgressiveImage src={imageVal} placeholder={placeholderImageVal}>
@@ -34,6 +34,8 @@ export default class extends React.Component {
         </section>
       </article>
     );
+
+    return (titleVal && descriptionVal && imageVal && placeholderImageVal && pubDate) ? res : false;
   }
 
   render() {
