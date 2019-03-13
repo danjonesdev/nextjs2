@@ -41,6 +41,7 @@
     -webkit-line-clamp: $number-of-lines;
     line-height: $line-height;
     max-height: $line-height*$number-of-lines;
+    
     @extend .bold;
     @extend .f5;
     @extend .mb2;
