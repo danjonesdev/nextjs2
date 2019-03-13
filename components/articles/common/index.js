@@ -16,7 +16,7 @@ export default class extends React.Component {
         : imageVal;
 
       const res = (() => (
-        <article className="card  card--article  card--article--common">
+        <article className="card  aritcle-card  aritcle-card--common">
           <figure className="card__figure">
             <Link to={linkResolver(article)}>
               <a>
@@ -43,6 +43,6 @@ export default class extends React.Component {
   }
 
   render() {
-    return <div className="flex  flex-wrap">{this.renderArticles()}</div>;
+    return <div className="articles  articles--common">{this.renderArticles()}</div>;
   }
 }

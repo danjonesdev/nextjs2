@@ -1,5 +1,6 @@
 .articles {
-
+  @extend .flex;
+  @extend .flex-wrap;
 }
 
 .aritcle-card {
@@ -26,8 +27,8 @@
   }
 
   .card__details {
+    height: 6rem;
     @extend .ph2;
-    @extend .h4;
   }
 
   .card__title {
