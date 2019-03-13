@@ -115,7 +115,6 @@ typings/
 
 ### Yarn ###
 yarn-error.log
-yarn.lock
 
 ### package lock ###
 package-lock.json
