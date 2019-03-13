@@ -62,7 +62,7 @@ export default class extends React.Component {
         <meta property="og:image" content={imageVal} />
         <meta property="og:image:secure_url" content={imageVal} />
         <meta property="og:image:type" content="image/jpeg" />
-        <meta property="og:image:width" content="1440" /> 
+        <meta property="og:image:width" content="1440" />
         <meta property="og:image:height" content="1440" />
         <meta property="og:description" content={descriptionVal} />
         <meta property="og:site_name" content={siteNameVal} />

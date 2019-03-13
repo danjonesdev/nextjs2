@@ -8,9 +8,9 @@ export default class extends React.Component {
     const { articles } = this.props;
 
     return articles.map((article) => {
-      const titleVal = article.data.title || '';
-      const descriptionVal = article.data.description || '';
-      const imageVal = (article.data.main_image) ? article.data.main_image.url : '';
+      const titleVal = article.data.title;
+      const descriptionVal = article.data.description;
+      const imageVal = article.data.main_image.url;
       const placeholderImageVal = (article.data.main_image && article.data.main_image.placeholder)
         ? article.data.main_image.placeholder.url
         : imageVal;
@@ -37,7 +37,8 @@ export default class extends React.Component {
           </div>
         </article>
       ))();
-      return res;
+
+      return (titleVal, descriptionVal, imageVal, placeholderImageVal) ? res : false;
     });
   }
 
