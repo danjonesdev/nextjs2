@@ -79,8 +79,12 @@ export default class extends React.Component {
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff" />
 
-        <link href="/_next/static/style.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.23.0/polyfill.min.js" />
+
+        {/* Snipcart */}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js" />
+        <script src="https://cdn.snipcart.com/scripts/2.0/snipcart.js" data-api-key="NTY2NzQwYWEtNjAyZi00ZjY3LWIwMDAtMWRhNGE1ZmM0NDA2NjM2ODc1NjU1NzQxODUyMzkw" data-autopop="false" id="snipcart" />
+        <link href="https://cdn.snipcart.com/themes/2.0/base/snipcart.min.css" rel="stylesheet" type="text/css" />
       </Head>
     );
   }

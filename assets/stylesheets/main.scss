@@ -1,10 +1,12 @@
 // Vendor
 @import 'vendor/normalize';
-// @import 'vendor/flickity';
-// @import 'vendor/prism';
+// @import 'vendor/snipcart';
 
 // Variables
 @import 'vars/index';
+
+// Vendor with Variables
+// @import 'vendor/snipcart-override';
 
 // Functions
 @import 'functions/breakpoints';

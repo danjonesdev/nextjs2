@@ -39,6 +39,26 @@ export default class extends React.Component {
             <li className="pb2">Next page transitions</li>
             <li className="pb2">Progressive image loading</li>
           </ul>
+          <div className="snipcart-summary">
+            Number of items: <span className="snipcart-total-items" />
+            Total price: <span className="snipcart-total-price" />
+          </div>
+
+
+          <a href="/" className="snipcart-checkout">Click here to checkout</a>
+
+          <button
+            type="button"
+            className="snipcart-add-item"
+            data-item-id="2"
+            data-item-name="Bacon"
+            data-item-price="3.00"
+            data-item-weight="20"
+            data-item-url="http://myapp.com/products/bacon"
+            data-item-description="Some fresh bacon"
+          >
+            Buy bacon
+          </button>
 
           <FeaturedArticles articles={articles} />
         </section>
