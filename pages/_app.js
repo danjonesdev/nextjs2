@@ -23,7 +23,7 @@ export default class extends App {
     return (
       <Container>
         <NProgress color="#000" />
-        <PageTransition timeout={300} classNames="page-transition">
+        <PageTransition timeout={300} classNames="page-transition test">
           <Component {...Object.assign(pageProps, { layout })} />
         </PageTransition>
       </Container>
